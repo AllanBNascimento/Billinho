@@ -1,0 +1,40 @@
+<h1><%= @fatura.id %></h1>
+<table>
+    <tr>
+        <td>
+            Valor da fatura:
+        </td>
+        <td>
+            <%= "R$ %.2f" %@fatura.valor_da_fatura %>
+        </td>
+    </tr>    
+    <tr>
+        <td>
+            Data de vencimento:
+        </td>
+        <td>
+            <%= @fatura.data_vencimento.strftime('%d/%m/%Y') %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ID da matricula:
+        </td>
+        <td>
+            <%= @fatura.id_da_matricula %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Status:
+        </td>
+        <td>
+            <%= @fatura.status %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= link_to "Voltar", fatura_index_path%>
+        </td>
+    </tr>
+</table>

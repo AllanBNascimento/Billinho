@@ -1,0 +1,44 @@
+<center>
+<h1>Instituições de ensino</h1>
+
+<table>
+    <tr>
+        <td><center><b>
+            Id
+        </td><td></td>
+        <td><center><b>
+            Nome
+        </td><td></td>
+        <td><center><b>
+            CNPJ
+        </td><td></td>
+        <td><center><b>
+            Tipo
+        </td><td></td>
+        <td><center><b>
+            Matriculas
+        </td><td></td>
+    </tr> 
+    <% @instituicoes.each do |instituicao| %>
+        <tr>
+        <td><center>
+            <%= instituicao.id %>
+        </td><td></td>
+        <td><center>
+            <%= instituicao.nome %>
+        </td><td></td>
+        <td><center>
+            <%= instituicao.cnpj %>
+        </td><td></td>
+        <td><center>
+            <%= instituicao.tipo %>
+        </td><td></td>
+        <td><center>
+            <%= link_to "link", "../matricula" %>
+        </td><td></td>
+    </tr> 
+    <% end %>
+    <tr></tr>
+</table>
+
+<%= link_to "Cadastrar instituição", new_instituicao_path %> <br> <%= link_to "Voltar", billinho_path %>

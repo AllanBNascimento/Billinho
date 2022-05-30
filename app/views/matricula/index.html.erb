@@ -1,0 +1,50 @@
+<center>
+<h1>Matriculas</h1>
+<styles td: center>
+<table>
+    <tr>
+        <td><center><b>
+            Id
+        </td><td></td>
+        <td><center><b>
+            Valor total do curso
+        </td><td></td>
+        <td><center><b>
+            Quantidade de faturas
+        </td><td></td>
+        <td><center><b>
+            Dia de vencimento
+        </td><td></td>
+        <td><center><b>
+            Id_instituicao
+        </td><td></td>
+        <td><center><b>
+            Id_aluno
+        </td><td></td>
+    </tr> 
+    <% @matriculas.each do |matricula| %>
+        <tr>
+        <td><center>
+            <%= matricula.id %>
+        </td><td></td>
+        <td><center>
+            <%= "R$ %.2f" %matricula.valor_total_do_curso %>
+        </td><td></td>
+        <td><center>
+            <%= link_to matricula.quantidade_de_faturas, "/matricula/#{matricula.id}" %>
+        </td><td></td>
+        <td><center>
+            <%= matricula.dia_de_vencimento_das_faturas %>
+        </td><td></td>
+        <td><center>
+            <%= matricula.instituicao_id%>
+        </td><td></td>
+        <td><center>
+            <%= matricula.aluno_id %>
+        </td><td></td>
+    </tr> 
+    <% end %>
+    <tr></tr>
+</table>
+
+<%= link_to "Nova matricula", new_matricula_path %> <br> <%= link_to "Voltar", billinho_path %>

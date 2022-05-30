@@ -1,0 +1,44 @@
+<center>
+<h1>Faturas</h1>
+
+<table>
+    <tr>
+        <td><center><b>
+            Id
+        </td><td></td>
+        <td><center><b>
+            Valor da fatura
+        </td><td></td>
+        <td><center><b>
+            Data de vencimento
+        </td><td></td>
+        <td><center><b>
+            Id_matricula
+        </td><td></td>
+        <td><center><b>
+            Status
+        </td><td></td>
+    </tr> 
+    <% @faturas.each do |fatura| %>
+        <tr>
+        <td><center>
+            <%= fatura.id %>
+        </td><td></td>
+        <td><center>
+            <%= "R$ %.2f"%fatura.valor_da_fatura %>
+        </td><td></td>
+        <td><center>
+            <%= fatura.data_vencimento %>
+        </td><td></td>
+        <td><center>
+            <%= fatura.id_da_matricula %>
+        </td><td></td>
+        <td><center>
+            <%= fatura.status%>
+        </td><td></td>
+    </tr> 
+    <% end %>
+    <tr></tr>
+</table>
+
+<%= link_to "Voltar", billinho_path %>

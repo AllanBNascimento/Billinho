@@ -1,0 +1,45 @@
+<h1>Cadastrar Instituição</h1>
+
+<%= form_for @instituicao, :url => {:action => :create} do |form| %>
+    <table>
+        <tr>
+            <td>
+                    <%= form.label :nome%>
+            </td>
+            <td>
+                    <%= form.text_field :nome %>
+            </td>
+            # MENSSAGENS DE ERRO PARA ARRUMAR
+            # <% @instituicao.errors.full_messages_for(:nome).each do |message| %>
+            #    <td><%= message %></td>
+            # <% end %>
+        </tr>
+        <tr>
+            <td>
+                    <%= form.label :cnpj%>
+            </td>
+            <td>
+                    <%= form.text_field :cnpj %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <%= form.label :tipo%>
+            </td>
+            <td>
+                    <%= form.radio_button :tipo, "Universidade" %> Universidade
+                    <%= form.radio_button :tipo, "Escola" %> Escola
+                    <%= form.radio_button :tipo, "Creche" %> Creche
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.submit "Cadastrar"%>
+            </td>
+            <td>
+            <%= link_to "Voltar", instituicao_index_path %>
+            </td>
+        </tr>
+
+    </table>
+<% end %>

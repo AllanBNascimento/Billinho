@@ -1,0 +1,2 @@
+module BillinhoHelper
+end

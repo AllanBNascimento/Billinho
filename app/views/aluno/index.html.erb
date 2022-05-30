@@ -1,0 +1,62 @@
+<center>
+<h1>Alunos</h1>
+
+<table>
+    <tr>
+        <td><center><b>
+            Id
+        </td><td></td>
+        <td><center><b>
+            Nome
+        </td><td></td>
+        <td><center><b>
+            CPF
+        </td><td></td>
+        <td><center><b>
+            Data de nascimento
+        </td><td></td>
+        <td><center><b>
+            Telefone celular
+        </td><td></td>
+        <td><center><b>
+            Genero
+        </td><td></td>
+        <td><center><b>
+            Meio de pagamento escolhido
+        </td><td></td>
+        <td><center><b>
+            Matriculas
+        </td><td></td>
+    </tr> 
+    <% @alunos.each do |aluno| %>
+        <tr>
+        <td><center>
+            <%= aluno.id %>
+        </td><td></td>
+        <td><center>
+            <%= aluno.nome %>
+        </td><td></td>
+        <td><center>
+            <%= aluno.cpf %>
+        </td><td></td>
+        <td><center>
+            <%= aluno.data_de_nascimento.strftime ("%d/%m/%Y") %>
+        </td><td></td>
+        <td><center>
+            <%= aluno.telefone_celular %>
+        </td><td></td>
+        <td><center>
+            <%= aluno.genero %>
+        </td><td></td>
+        <td><center>
+            <%= aluno.meio_de_pagamento %>
+        </td><td></td>
+        <td><center>
+            <%= link_to "link", "../matricula" %>
+        </td><td></td>
+    </tr> 
+    <% end %>
+    <tr></tr>
+</table>
+
+<%= link_to "Cadastrar Aluno", new_aluno_path %> <br> <%= link_to "Voltar", billinho_path %>

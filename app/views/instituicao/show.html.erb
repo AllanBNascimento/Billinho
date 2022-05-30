@@ -1,0 +1,30 @@
+<h1><%= @instituicao.nome.capitalize %></h1>
+<table>
+    <tr>
+        <td>
+            CNPJ:
+        </td>
+        <td>
+            <%= @instituicao.cnpj %>
+        </td>
+    </tr>    
+    <tr>
+        <td>
+            Tipo:
+        </td>
+        <td>
+            <%= @instituicao.tipo.capitalize %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= link_to "Voltar", instituicao_index_path%>
+        </td>
+        <td>
+        <%= link_to "Excluir", instituicao_path, data: {
+                turbo_method: :delete,
+                turbo_confirm: "Tem certeza que deseja excluir os dados?"
+            } %>
+        </td>
+    </tr>
+</table>

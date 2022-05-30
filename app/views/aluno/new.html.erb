@@ -1,0 +1,80 @@
+
+
+<h1>Cadastrar Aluno</h1>
+
+<%= form_for @aluno, :url => {:action => :create} do |form| %>
+        <% if @aluno.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@aluno.errors.count, "error") %> 123435 </h2>
+
+    <ul>
+      <% @aluno.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= @aluno.errors.full_messages.first if @aluno.errors.any? %>
+    <table>
+        <tr>
+            <td>
+                    <%= form.label :nome%>
+            </td>
+            <td>
+                    <%= form.text_field :nome %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <%= form.label :cpf%>
+            </td>
+            <td>
+                    <%= form.text_field :cpf %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <%= form.label :data_de_nascimento%>
+            </td>
+            <td>
+                    <%= form.date_field :data_de_nascimento %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <%= form.label :telefone_celular%>
+            </td>
+            <td>
+                    <%= form.text_field :telefone_celular %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <%= form.label :genero%>
+            </td>
+            <td>
+                    <%= form.radio_button :genero, "M" %> Masculino
+                    <%= form.radio_button :genero, "F" %> Feminino
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <%= form.label :meio_de_pagamento%>
+            </td>
+            <td>
+                    <%= form.radio_button :meio_de_pagamento, "Boleto" %> Boleto
+                    <%= form.radio_button :meio_de_pagamento, "Cartao" %> Cartão
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.submit "Cadastrar"%>
+            </td>
+            <td>
+            <%= link_to "Voltar", aluno_index_path %>
+            </td>
+        </tr>
+
+    </table>
+<% end %>
+
