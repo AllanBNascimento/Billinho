@@ -1,6 +1,5 @@
 <center>
-<h1>Matriculas</h1>
-<styles td: center>
+<h1>Matriculas </h1>
 <table>
     <tr>
         <td><center><b>
@@ -31,7 +30,7 @@
             <%= "R$ %.2f" %matricula.valor_total_do_curso %>
         </td><td></td>
         <td><center>
-            <%= link_to matricula.quantidade_de_faturas, "/matricula/#{matricula.id}" %>
+            <%= link_to matricula.quantidade_de_faturas, "matricula/#{matricula.id}/fatura" %>
         </td><td></td>
         <td><center>
             <%= matricula.dia_de_vencimento_das_faturas %>
@@ -47,4 +46,4 @@
     <tr></tr>
 </table>
 
-<%= link_to "Nova matricula", new_matricula_path %> <br> <%= link_to "Voltar", billinho_path %>
+<%= link_to "Nova matricula", "matricula/new" %> <br> <%= link_to "Voltar", "/#{parametro}" %>

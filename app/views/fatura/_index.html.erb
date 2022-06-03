@@ -28,10 +28,10 @@
             <%= "R$ %.2f"%fatura.valor_da_fatura %>
         </td><td></td>
         <td><center>
-            <%= fatura.data_vencimento %>
+            <%= fatura.data_vencimento.strftime("%d/%m/%Y") %>
         </td><td></td>
         <td><center>
-            <%= fatura.id_da_matricula %>
+            <%= fatura.matricula_id %>
         </td><td></td>
         <td><center>
             <%= fatura.status%>
@@ -41,4 +41,4 @@
     <tr></tr>
 </table>
 
-<%= link_to "Voltar", billinho_path %>
+<%= link_to "Voltar", "../../#{parametro}" %>

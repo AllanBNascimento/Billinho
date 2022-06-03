@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,47 +12,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_180306) do
-  create_table "alunos", force: :cascade do |t|
-    t.text "nome"
-    t.text "cpf"
-    t.date "data_de_nascimento"
-    t.integer "telefone_celular"
-    t.text "genero"
-    t.text "meio_de_pagamento"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema[7.0].define(version: 20_220_525_180_306) do
+  create_table 'alunos', force: :cascade do |t|
+    t.text 'nome'
+    t.text 'cpf'
+    t.date 'data_de_nascimento'
+    t.integer 'telefone_celular'
+    t.text 'genero'
+    t.text 'meio_de_pagamento'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "faturas", force: :cascade do |t|
-    t.float "valor_da_fatura"
-    t.date "data_vencimento"
-    t.integer "matriculas_id"
-    t.text "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["matriculas_id"], name: "index_faturas_on_matriculas_id"
+  create_table 'faturas', force: :cascade do |t|
+    t.float 'valor_da_fatura'
+    t.date 'data_vencimento'
+    t.text 'status'
+    t.integer 'matricula_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['matricula_id'], name: 'index_faturas_on_matricula_id'
   end
 
-  create_table "instituicoes", force: :cascade do |t|
-    t.text "nome"
-    t.text "cnpj"
-    t.text "tipo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'instituicaos', force: :cascade do |t|
+    t.text 'nome'
+    t.text 'cnpj'
+    t.text 'tipo'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "matriculas", force: :cascade do |t|
-    t.float "valor_total_do_curso"
-    t.integer "quantidade_de_faturas"
-    t.integer "dia_de_vencimento_das_faturas"
-    t.text "nome_do_curso"
-    t.integer "instituicao_id"
-    t.integer "aluno_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["aluno_id"], name: "index_matriculas_on_aluno_id"
-    t.index ["instituicao_id"], name: "index_matriculas_on_instituicao_id"
+  create_table 'matriculas', force: :cascade do |t|
+    t.float 'valor_total_do_curso'
+    t.integer 'quantidade_de_faturas'
+    t.integer 'dia_de_vencimento_das_faturas'
+    t.text 'nome_do_curso'
+    t.integer 'instituicao_id', null: false
+    t.integer 'aluno_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['aluno_id'], name: 'index_matriculas_on_aluno_id'
+    t.index ['instituicao_id'], name: 'index_matriculas_on_instituicao_id'
   end
 
+  add_foreign_key 'faturas', 'matriculas'
+  add_foreign_key 'matriculas', 'alunos'
+  add_foreign_key 'matriculas', 'instituicaos'
 end

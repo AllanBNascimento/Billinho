@@ -34,7 +34,9 @@
             <%= instituicao.tipo %>
         </td><td></td>
         <td><center>
-            <%= link_to "link", "../matricula" %>
+            <%= link_to "Acessar matriculas", "instituicao/#{instituicao.id}/matricula"
+                #link_to "Acessar matriculas", instituicao_path(instituicao) 
+            %>
         </td><td></td>
     </tr> 
     <% end %>

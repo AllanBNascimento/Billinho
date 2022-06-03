@@ -1,20 +1,17 @@
-
-
 <h1>Cadastrar Aluno</h1>
 
 <%= form_for @aluno, :url => {:action => :create} do |form| %>
-        <% if @aluno.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@aluno.errors.count, "error") %> 123435 </h2>
-
-    <ul>
-      <% @aluno.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= @aluno.errors.full_messages.first if @aluno.errors.any? %>
+    <% if @aluno.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@aluno.errors.count, "error") %> Erros de cadastro encontrados:</h2>
+            <ul>
+                <% @aluno.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= @aluno.errors.full_messages.first if @aluno.errors.any? %>
     <table>
         <tr>
             <td>

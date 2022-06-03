@@ -1,4 +1,4 @@
-<h1>Nova matricula</h1>
+<h1>Nova matricula </h1>
 
 <%= form_for @matricula, :url => {:action => :create} do |form| %>
     <table>
@@ -36,7 +36,7 @@
         </tr>
         <tr>
             <td>
-                    <%= form.label :instituicao_id %>
+                    <%= form.label :instituicao_id %>_id
             </td>
             <td>
                     <%= form.text_field :instituicao_id %>
@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td>
-                    <%= form.label :aluno_id %>
+                    <%= form.label :aluno_id %>_id
             </td>
             <td>
                     <%= form.text_field :aluno_id %>
@@ -56,7 +56,7 @@
                 <%= form.submit "Cadastrar"%>
             </td>
             <td>
-            <%= link_to "Voltar", matricula_index_path %>
+            <%= link_to "Voltar", "../matricula"%>
             </td>
         </tr>
 

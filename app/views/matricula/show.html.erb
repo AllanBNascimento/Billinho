@@ -18,7 +18,7 @@
             Status
         </td><td></td>
     </tr> 
-    <% faturas = Fatura.where(id_da_matricula: @matricula.id) %>
+    <% faturas = Fatura.where(matricula_id: @matricula.id) %>
     <% faturas.each do |fatura| %>
         <tr>
         <td><center>
@@ -31,7 +31,7 @@
             <%= fatura.data_vencimento.strftime('%d/%m/%Y') %>
         </td><td></td>
         <td><center>
-            <%= fatura.id_da_matricula %>
+            <%= fatura.matricula_id %>
         </td><td></td>
         <td><center>
             <%= fatura.status%>
