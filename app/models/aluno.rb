@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Aluno < ApplicationRecord
   has_many :matriculas
 
@@ -12,6 +10,6 @@ class Aluno < ApplicationRecord
   validates :meio_de_pagamento, presence: true, inclusion: { in: %w[Boleto Cartao] }
 
   def verifica_data
-    errors.add(:data_de_nascimento, 'Data de nascimento inválida!!!') if data_de_nascimento > Date.today
+    errors.add(:data_de_nascimento, 'não pode estar no futuro') if data_de_nascimento > Date.today
   end
 end

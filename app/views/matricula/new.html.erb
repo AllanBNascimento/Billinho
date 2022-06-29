@@ -1,6 +1,16 @@
 <h1>Nova matricula </h1>
 
 <%= form_for @matricula, :url => {:action => :create} do |form| %>
+   <% if @matricula.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@matricula.errors.count, "Erro") %> de cadastro:</h2>
+            <ul>
+                <% @matricula.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
     <table>
         <tr>
             <td>

@@ -25,10 +25,14 @@ class MatriculaController < ApplicationController
 
   def create
     @matricula = Matricula.new(matricula_params)
-    if @matricula.save
-      redirect_to billinho_path
-    else
-      render :new
+    respond_to do |format|
+      if @matricula.save
+        format.html { redirect_to billinho_path, notice: 'Matricula cadastrada.' }
+        format.json { render :show, status: :created, location: @matricula }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @matricula.errors, status: :unprocessable_entity }
+      end
     end
   end
 

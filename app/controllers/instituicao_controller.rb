@@ -15,13 +15,16 @@ class InstituicaoController < ApplicationController
 
   def create
     @instituicao = Instituicao.new(instituicao_params)
-    if @instituicao.save
-      redirect_to instituicao_index_path
-    else
-      render :new
+    respond_to do |format|
+      if @instituicao.save
+        format.html { redirect_to instituicao_index_path, notice: 'Instituição cadastrada.' }
+        format.json { render :show, status: :created, location: @instituicao }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @instituicao.errors, status: :unprocessable_entity }
+      end
     end
   end
-
   def destroy
     @instituicao = Instituicao.find(params[:id])
     @instituicao.destroy

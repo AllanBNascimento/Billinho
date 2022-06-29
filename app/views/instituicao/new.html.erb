@@ -1,6 +1,16 @@
 <h1>Cadastrar Instituição</h1>
 
 <%= form_for @instituicao, :url => {:action => :create} do |form| %>
+    <% if @instituicao.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@instituicao.errors.count, "Erro") %> de cadastro:</h2>
+            <ul>
+                <% @instituicao.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
     <table>
         <tr>
             <td>
@@ -9,10 +19,6 @@
             <td>
                     <%= form.text_field :nome %>
             </td>
-            # MENSSAGENS DE ERRO PARA ARRUMAR
-            # <% @instituicao.errors.full_messages_for(:nome).each do |message| %>
-            #    <td><%= message %></td>
-            # <% end %>
         </tr>
         <tr>
             <td>

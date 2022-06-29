@@ -29,7 +29,6 @@ class AlunoController < ApplicationController
   private
 
   def aluno_params
-    params.require(:aluno).permit(:nome, :cpf, :data_de_nascimento, :telefone_celular, :genero,
-                                  :meio_de_pagamento)
+    params.require(:aluno).permit(:nome, :cpf, :data_de_nascimento, :telefone_celular, :genero, :meio_de_pagamento)
   end
 end

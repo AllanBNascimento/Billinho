@@ -10,7 +10,8 @@ class Matricula < ApplicationRecord
   validates :quantidade_de_faturas, presence: true, numericality: { greater_than_or_equal: 1 }
   validates :dia_de_vencimento_das_faturas, presence: true, numericality: { greater_than: 0, less_than: 32 }
   validates :nome_do_curso, presence: true
-
+  validates :instituicao_id, presence: true
+  validates :aluno_id, presence: true
   after_create :fatura
 
   private
