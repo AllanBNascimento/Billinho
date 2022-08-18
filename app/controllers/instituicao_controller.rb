@@ -14,6 +14,7 @@ class InstituicaoController < ApplicationController
   end
 
   def create
+    puts "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     @instituicao = Instituicao.new(instituicao_params)
     respond_to do |format|
       if @instituicao.save
@@ -25,16 +26,18 @@ class InstituicaoController < ApplicationController
       end
     end
   end
-  def destroy
-    @instituicao = Instituicao.find(params[:id])
-    @instituicao.destroy
 
-    redirect_to instituicao_index_path
+  def destroy
+    instituicao_id = params[:instituicao_id]
+    institution = Instituicao.find(instituicao_id)
+    institution.destroy
+      
+    redirect_to instituicao_index_path :notice => "Instituição deletada com sucesso"
   end
 
   private
 
   def instituicao_params
-    params.require(:instituicao).permit(:nome, :cnpj, :tipo)
+    params.permit(:nome, :cnpj, :tipo)
   end
 end

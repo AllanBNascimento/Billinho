@@ -1,5 +1,5 @@
 class Aluno < ApplicationRecord
-  has_many :matriculas
+  has_many :matriculas, dependent: :destroy
 
   validates :nome, presence: true, uniqueness: true
   validates :cpf, presence: true, numericality: { only_integer: true }, length: { is: 11 }, uniqueness: true

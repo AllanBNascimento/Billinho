@@ -1,76 +1,72 @@
-<h1>Cadastrar Aluno</h1>
+<head>
+  <title>Cadastrar Aluno</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container mt-3">
+    <h2>Cadastrar Aluno</h2>
+        <form action="/aluno" method = "post">
+        <% if @aluno.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(@aluno.errors.count, "Erro") %> de cadastro:</h2>
+                <ul>
+                    <% @aluno.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+            <div class="mb-3 mt-3">
+                <label for="nome">Nome completo:</label>
+                <input type="nome" class="form-control" id="nome" placeholder="nome completo" name="nome">
+            </div>
+            <div class="mb-3">
+                <label for="cpf">CPF:</label>
+                <input type="cpf" class="form-control" id="cpf" placeholder="CPF" name="cpf">
+            </div>
 
-<%= form_for @aluno, :url => {:action => :create} do |form| %>
-    <% if @aluno.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@aluno.errors.count, "Erro") %> de cadastro:</h2>
-            <ul>
-                <% @aluno.errors.each do |error| %>
-                <li><%= error.full_message %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
-    <table>
-        <tr>
-            <td>
-                    <%= form.label :nome%>
-            </td>
-            <td>
-                    <%= form.text_field :nome %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                    <%= form.label :cpf%>
-            </td>
-            <td>
-                    <%= form.text_field :cpf %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                    <%= form.label :data_de_nascimento%>
-            </td>
-            <td>
-                    <%= form.date_field :data_de_nascimento , value:Date.today%>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                    <%= form.label :telefone_celular%>
-            </td>
-            <td>
-                    <%= form.text_field :telefone_celular %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                    <%= form.label :genero%>
-            </td>
-            <td>
-                    <%= form.radio_button :genero, "M" %> Masculino
-                    <%= form.radio_button :genero, "F" %> Feminino
-            </td>
-        </tr>
-        <tr>
-            <td>
-                    <%= form.label :meio_de_pagamento%>
-            </td>
-            <td>
-                    <%= form.radio_button :meio_de_pagamento, "Boleto" %> Boleto
-                    <%= form.radio_button :meio_de_pagamento, "Cartao" %> Cartão
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.submit "Cadastrar"%>
-            </td>
-            <td>
-            <%= link_to "Voltar", aluno_index_path %>
-            </td>
-        </tr>
+            <div class="mb-3">
+                <label for="data_de_nascimento">Data de nascimento:</label>
+            </div>
 
-    </table>
-<% end %>
+            <div class="mb-3">
+                <input id="date" type="date" value="2000-01-01" name="data_de_nascimento">
+            </div>
 
+            <div class="mb-3">
+                <label for="telefone_celular">Telefone celular:</label>
+                <input type="telefone_celular" class="form-control" id="telefone_celular" placeholder="telefone_celular" name="telefone_celular">
+            </div>
+
+            <div class="mb-3">
+                <label for="genero">Gênero:</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="genero" value="M" checked>
+                <label class="form-check-label" for="radio1">Masculino</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="genero" value="F">
+                <label class="form-check-label" for="radio2">Feminino</label>
+            </div>
+            <div class="mb-3"></div>
+
+            <div class="mb-3">
+                <label for="meio_de_pagamento">Meio de pagamento:</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="meio_de_pagamento" value="Boleto" checked>
+                <label class="form-check-label" for="radio1">Boleto</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="meio_de_pagamento" value="Cartao">
+                <label class="form-check-label" for="radio2">Cartão</label>
+            </div>
+
+            <button type="submit" class="btn btn-outline-dark">Cadastrar</button>
+        </form>
+    </div>
+</body>

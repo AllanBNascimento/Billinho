@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   get 'aluno/:aluno_id/matricula', to: 'matricula#matriculas_do_aluno'
   get 'aluno/:aluno_id/matricula/new', to: 'matricula#new'
   get 'aluno/:aluno_id/matricula/:matricula_id/fatura', to: 'fatura#faturas_da_matricula'
+
+  get 'instituicao/:instituicao_id/destroy', to: 'instituicao#destroy'
+  get 'aluno/:aluno_id/destroy', to: 'aluno#destroy'
 end

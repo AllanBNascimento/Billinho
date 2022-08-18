@@ -26,9 +26,17 @@ class AlunoController < ApplicationController
     end
   end
 
+  def destroy
+    aluno_id = params[:aluno_id]
+    aluno = Aluno.find(aluno_id)
+    aluno.destroy
+      
+    redirect_to aluno_index_path :notice => "Aluno deletado com sucesso"
+  end
+
   private
 
   def aluno_params
-    params.require(:aluno).permit(:nome, :cpf, :data_de_nascimento, :telefone_celular, :genero, :meio_de_pagamento)
+    params.permit(:nome, :cpf, :data_de_nascimento, :telefone_celular, :genero, :meio_de_pagamento)
   end
 end

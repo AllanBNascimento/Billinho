@@ -39,7 +39,7 @@ class MatriculaController < ApplicationController
   private
 
   def matricula_params
-    params.require(:matricula).permit(:valor_total_do_curso, :quantidade_de_faturas,
+    params.permit(:valor_total_do_curso, :quantidade_de_faturas,
                                       :dia_de_vencimento_das_faturas, :nome_do_curso, :instituicao_id, :aluno_id)
   end
 end
